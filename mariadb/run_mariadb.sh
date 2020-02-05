@@ -3,9 +3,9 @@
 docker run -d \
 --name some_db \
 --restart=always \
---net=qinet \
 -p 3306:3306 \
 -v /path/to/data:/var/lib/mysql \
+-v /path/to/conf/my.conf:/var/lib/etc/my.conf \
 -e MYSQL_DATABASE=some_db \
 -e MYSQL_USER=user \
 -e MYSQL_PASSWORD=password \
