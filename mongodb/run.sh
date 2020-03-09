@@ -3,7 +3,7 @@
 docker stop storage
 docker rm storage
 docker run -d \
--p 27071:27017 \
+-p 27017:27017 \
 --name storage \
 --restart=always \
 -v /storage/mongodb/data:/data/db \
