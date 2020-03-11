@@ -1,0 +1,35 @@
+#docker-comose.yml
+version: "3.0"
+services:
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+      - /storage/influxdb/conf/influxdb.conf:/etc/influxdb/influxdb.conf:ro
+    ports:
+      - 8089:8089/udp
+      - 8086:8086
+      - 8083:8083
+    networks:
+      - logger_net
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    networks:
+      - logger_net
+
+volumes:
+  influxdb_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  logger_net:
+    driver: bridge
