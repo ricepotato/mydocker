@@ -1,0 +1,18 @@
+version: "2.4"
+services:
+  mockServerSecure:
+    image: mockserver/mockserver
+    command: -serverPort 443 -logLevel INFO
+    ports:
+      - 443:443
+    environment:
+      LOG_LEVEL: "INFO"
+      SERVER_PORT: 443
+  mockServer:
+    image: mockserver/mockserver
+    command: -serverPort 80 -logLevel INFO
+    ports:
+      - 80:80
+    environment:
+      LOG_LEVEL: "INFO"
+      SERVER_PORT: 80

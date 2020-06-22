@@ -1,7 +1,11 @@
 #!/bin/bash
 
+docker stop storage
+docker rm storage
 docker run -d \
---name stroage \
+-p 27017:27017 \
+--name storage \
 --restart=always \
--v /path/to/data:/data/db \
-mongo:3.6-xenial --config /path/to/mongod.conf
+-v /storage/mongodb/data:/data/db \
+-v /storage/mongodb/conf:/etc/mongo \
+mongo:3.6-xenial --config /etc/mongo/mongod.conf
