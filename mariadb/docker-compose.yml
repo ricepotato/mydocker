@@ -17,13 +17,15 @@ services:
       - 3307:3306
     networks:
       - somenet
+    command: ["--character-set-server=utf8", "--collation-serer=utf8_unicode_ci"]
+    
 
 
   adminer:
     image: adminer
     restart: always
     ports:
-      - 8080
+      - 8080:8080
     networks:
       - somenet
 
