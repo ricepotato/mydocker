@@ -33,3 +33,5 @@ volumes:
 networks:
   logger_net:
     driver: bridge
+  # some_set:
+  #   external: true
