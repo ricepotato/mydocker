@@ -1,0 +1,1 @@
+docker build --no-cache --network host -t ricepotato/ubuntu18py37:1.1.0 .
