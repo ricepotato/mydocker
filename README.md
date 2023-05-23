@@ -27,3 +27,10 @@ $ docker volume prune
 
 ## docker networks
 
+## docker buildx
+
+binfmt을 사용하여 binfmt_misc handler에 핸들러를 추가로 설치
+
+```
+docker run --privileged --rm tonistiigi/binfmt --install all
+```
